@@ -24,20 +24,21 @@ import java.util.EventObject;
 import com.explicatis.ext_token_field.Tokenizable;
 import com.vaadin.util.ReflectTools;
 
-public class TokenRemovedEvent extends EventObject
+@SuppressWarnings("serial")
+public class TokenRemovedEvent<T extends Tokenizable> extends EventObject
 {
 
 	public static final Method	EVENT_METHOD	= ReflectTools.findMethod(TokenRemovedListener.class, "tokenRemovedEvent", TokenRemovedEvent.class);
 
-	private Tokenizable			tokenizable;
+	private T			tokenizable;
 
-	public TokenRemovedEvent(Object source, Tokenizable tokenizable)
+	public TokenRemovedEvent(Object source, T tokenizable)
 	{
 		super(source);
 		this.tokenizable = tokenizable;
 	}
 
-	public Tokenizable getTokenizable()
+	public T getTokenizable()
 	{
 		return tokenizable;
 	}

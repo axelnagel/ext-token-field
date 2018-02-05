@@ -18,9 +18,11 @@
 
 package com.explicatis.ext_token_field.events;
 
-public interface TokenRemovedListener
+import com.explicatis.ext_token_field.Tokenizable;
+
+public interface TokenRemovedListener<T extends Tokenizable>
 {
 
-	public void tokenRemovedEvent(TokenRemovedEvent event);
+	public void tokenRemovedEvent(TokenRemovedEvent<T> event);
 
 }

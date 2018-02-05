@@ -18,9 +18,11 @@
 
 package com.explicatis.ext_token_field.events;
 
-public interface TokenAddedListener
+import com.explicatis.ext_token_field.Tokenizable;
+
+public interface TokenAddedListener<T extends Tokenizable>
 {
 
-	public void tokenAddedEvent(TokenAddedEvent event);
+	public void tokenAddedEvent(TokenAddedEvent<T> event);
 
 }

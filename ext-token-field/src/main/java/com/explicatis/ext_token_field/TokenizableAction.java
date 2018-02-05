@@ -20,7 +20,7 @@ package com.explicatis.ext_token_field;
 
 import com.vaadin.server.Resource;
 
-public class TokenizableAction
+public class TokenizableAction<T extends Tokenizable>
 {
 
 	private final String	identifier;
@@ -59,7 +59,7 @@ public class TokenizableAction
 		this.icon = resource;
 	}
 
-	public void onClick(Tokenizable tokenizable)
+	public void onClick(T tokenizable)
 	{
 
 	}

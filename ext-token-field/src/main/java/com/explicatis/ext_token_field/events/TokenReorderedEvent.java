@@ -25,16 +25,17 @@ import com.explicatis.ext_token_field.Tokenizable;
 import com.explicatis.ext_token_field.shared.DropTargetType;
 import com.vaadin.util.ReflectTools;
 
-public class TokenReorderedEvent extends EventObject
+@SuppressWarnings("serial")
+public class TokenReorderedEvent<T extends Tokenizable> extends EventObject
 {
 
 	public static final Method		EVENT_METHOD	= ReflectTools.findMethod(TokenReorderedListener.class, "tokenReorderedEvent", TokenReorderedEvent.class);
 
-	private final Tokenizable		sourceTokenizable;
-	private final Tokenizable		targetTokenizable;
+	private final T		sourceTokenizable;
+	private final T		targetTokenizable;
 	private final DropTargetType	dropTargetType;
 
-	public TokenReorderedEvent(Object source, Tokenizable sourceTokenizable, Tokenizable targetTokenizable, DropTargetType dropTargetType)
+	public TokenReorderedEvent(Object source, T sourceTokenizable, T targetTokenizable, DropTargetType dropTargetType)
 	{
 		super(source);
 		this.sourceTokenizable = sourceTokenizable;
@@ -42,12 +43,12 @@ public class TokenReorderedEvent extends EventObject
 		this.dropTargetType = dropTargetType;
 	}
 
-	public Tokenizable getSourceTokenizable()
+	public T getSourceTokenizable()
 	{
 		return sourceTokenizable;
 	}
 
-	public Tokenizable getTargetTokenizable()
+	public T getTargetTokenizable()
 	{
 		return targetTokenizable;
 	}

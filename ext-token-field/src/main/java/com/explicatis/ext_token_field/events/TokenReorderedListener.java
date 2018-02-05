@@ -18,9 +18,11 @@
 
 package com.explicatis.ext_token_field.events;
 
-public interface TokenReorderedListener
+import com.explicatis.ext_token_field.Tokenizable;
+
+public interface TokenReorderedListener<T extends Tokenizable>
 {
 
-	public void tokenReorderedEvent(TokenReorderedEvent event);
+	public void tokenReorderedEvent(TokenReorderedEvent<T> event);
 
 }
